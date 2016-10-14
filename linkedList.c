@@ -9,8 +9,9 @@ struct node* free_list(struct node *n);
 
 //Takes a pointer to a node struct and print out all of the data in the list
 void print_list(struct node* n){
+  if (!n) return;
   printf("%d",n->x);
-  if (n){
+  if (n->next){
     printf(", ");
     print_list(n->next);
   }
@@ -18,7 +19,7 @@ void print_list(struct node* n){
 
 // Takes a pointer to the existing list and the data to be added, create a new node, put it at the beginning of the list and return a pointer to the beginning of the list.
 struct node* insert_front(struct node* rt, int x){
-  printf("inserting %d",x);
+  printf("inserting %d \n",x);
   struct node* new;
   new=(struct node *)malloc(sizeof(struct node));
   new->x=x;
@@ -34,7 +35,7 @@ struct node* free_list(struct node *n){
   free(n.next);
   return n;
   */
-  printf("freeing");
+  printf("freeing %d \n", n->x);
   struct node *next;
   next=n->next;
   free(n);
@@ -43,9 +44,7 @@ struct node* free_list(struct node *n){
 
 int main(){
   printf("%s","Beginning program");
-  struct node* rt=(struct node *)malloc(sizeof(struct node));
-  rt->x=17;
-  rt->next=0;
+  struct node* rt=0;
   print_list(rt);
   printf("\n");
 

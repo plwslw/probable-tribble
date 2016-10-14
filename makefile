@@ -1,8 +1,8 @@
-linkedList: linkedList.c
-	gcc linkedList.c -o linkedList.out
+compile: linkedList.c
+	gcc linkedList.c -o linkedList
 
 clean: 
 	rm *~
 
 run: linkedList.out
-	./linkedList.out
+	./linkedList
